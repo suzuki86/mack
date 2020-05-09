@@ -1,21 +1,34 @@
+needles=()
 command="ack"
 counter=1
 
+options=""
 for i in $@
 do
-  if [ $# -eq 1 ]; then
-    command="${command} -i ${i}"
+  if [[ $i = -* ]]; then
+    options="${options} $i"
+  else
+    needles+=($i)
+  fi
+done
+
+needlesLength=${#needles[@]}
+
+for i in "${needles[@]}"
+do
+  if [ $needlesLength -eq 1 ]; then
+    command="${command} ${options} -i ${i}"
   fi
 
-  if [ $# -ne 1 -a $counter -eq 1 ]; then
-    command="${command} -il ${i}"
+  if [ $needlesLength -ne 1 -a $counter -eq 1 ]; then
+    command="${command} ${options} -il ${i}"
   fi
 
-  if [ $counter -gt 1 ] && [ $counter -ne $# ]; then
+  if [ $counter -gt 1 ] && [ $counter -ne $needlesLength ]; then
     command="${command} | ack -ixl ${i}"
   fi
 
-  if [ $# -ne 1 ] && [ $counter -eq $# ]; then
+  if [ $needlesLength -ne 1 ] && [ $counter -eq $needlesLength ]; then
     command="${command} | ack -ix ${i}"
   fi
 
