@@ -21,6 +21,10 @@ jobs:
         echo "Hello Japan" >> 2.txt
         echo "Thank You" >> 2.txt
 
+    - name: Debug
+      run: |
+        ls -la
+
     - name: Run mack.sh
       run: |
         bash mack.sh bye
