@@ -11,7 +11,7 @@ jobs:
 
     - name: Install ack command
       run: |
-        apt-get install ack-grep
+        sudo apt-get install ack-grep
 
     - name: Create dummy files
       run: |
