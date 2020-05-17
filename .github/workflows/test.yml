@@ -9,6 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install ack command
+      run: |
+        apt-get install ack-grep
+
     - name: Create dummy files
       run: |
         echo "Hello World" >> 1.txt
