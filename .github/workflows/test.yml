@@ -27,4 +27,4 @@ jobs:
 
     - name: Run mack.sh
       run: |
-        bash mack.sh bye
+        bash mack.sh w b
