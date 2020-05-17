@@ -1,0 +1,22 @@
+name: Test
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Create dummy files
+      run: |
+        echo "Hello World" >> 1.txt
+        echo "Good Bye" >> 1.txt
+
+        echo "Hello Japan" >> 2.txt
+        echo "Thank You" >> 2.txt
+
+    - name: Run mack.sh
+      run: |
+        bash mack.sh bye
