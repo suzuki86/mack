@@ -25,6 +25,14 @@ jobs:
       run: |
         ls -la
 
+    - name: Debug
+      run: |
+        cat 1.txt
+
+    - name: Debug
+      run: |
+        cat 2.txt
+
     - name: Run mack.sh
       run: |
         bash mack.sh w b
