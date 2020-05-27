@@ -29,7 +29,7 @@ do
   fi
 
   if [ $needlesLength -ne 1 ] && [ $counter -eq $needlesLength ]; then
-    command="${command} | ack -ix ${i}"
+    command="${command} | ack -ixl ${i}"
   fi
 
   counter=$(expr $counter + 1)
