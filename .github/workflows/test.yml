@@ -35,5 +35,5 @@ jobs:
 
     - name: Run mack.sh
       run: |
-        bash mack.sh w b
+        bash mack.sh w
 
