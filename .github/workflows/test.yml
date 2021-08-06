@@ -1,0 +1,39 @@
+name: Test
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install ack command
+      run: |
+        sudo apt-get install ack-grep
+
+    - name: Create dummy files
+      run: |
+        echo "Hello World" >> 1.txt
+        echo "Good Bye" >> 1.txt
+
+        echo "Hello Japan" >> 2.txt
+        echo "Thank You" >> 2.txt
+
+    - name: Debug
+      run: |
+        ls -la
+
+    - name: Debug
+      run: |
+        cat 1.txt
+
+    - name: Debug
+      run: |
+        cat 2.txt
+
+    - name: Run mack.sh
+      run: |
+        bash mack.sh w
+
